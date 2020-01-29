@@ -1,0 +1,24 @@
+<div layout="column" layout-align="center center"  ng-cloak>
+<div style="height: 100px;"></div>
+<md-whiteframe class="md-whiteframe-24dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout="column" layout-align="space-around center">
+  
+  <div>
+    <md-input-container class="md-icon-float md-block" flex-sm="80" flex-gt-sm="80" flex-gt-md="80" >
+      <!-- Use floating label instead of placeholder -->
+      <label>Username</label>
+      <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+      <input ng-model="user.name" type="text">
+    </md-input-container>
+</div>
+<div>
+    <md-input-container class="md-icon-float md-block" flex-sm="80" flex-gt-sm="80" flex-gt-md="80" >
+      <!-- Use floating label instead of placeholder -->
+      <label>Password</label>
+      <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+      <input ng-model="user.password" type="password">
+    </md-input-container>
+
+    <div flex-sm="80" flex-gt-sm="80" flex-gt-md="80" ><a href="">Forgot Password</a></div>
+ </md-whiteframe>
+</div>
+</div>
