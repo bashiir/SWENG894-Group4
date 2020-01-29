@@ -17,14 +17,14 @@ myApp.config(function($stateProvider) {
     template: '<h3>hello world!</h3>'
   }
 
-  var aboutState = {
+  var loginState = {
     name: 'login',
     url: '/login',
     templateUrl: '/login/login.html'
   }
 
   $stateProvider.state(helloState);
-  $stateProvider.state(aboutState);
+  $stateProvider.state(loginState);
 });
 
 
