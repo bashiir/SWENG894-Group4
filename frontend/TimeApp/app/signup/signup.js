@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.signup', ['ngRoute'])
+angular.module('myApp.signup', ['ngRoute', 'ngMessages'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/signup', {
