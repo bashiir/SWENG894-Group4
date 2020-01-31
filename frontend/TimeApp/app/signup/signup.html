@@ -1,0 +1,41 @@
+<div layout="column" layout-align="center center" ng-cloak>
+<div style="height: 50px;"></div>
+<md-whiteframe class="md-whiteframe-24dp" layout="column" layout-align="space-around center" style="width: 300px;">
+  <div><p>Create Account</p></div>
+  <!-- <div>        <img src="assets/images/login-icon.png" alt="image" height="60" width="60">
+</div> -->
+  <div>
+    <md-input-container class="md-icon-float md-block" >
+      <!-- Use floating label instead of placeholder -->
+      <label>Username</label>
+      <input ng-model="user.name" type="text">
+    </md-input-container>
+</div>
+<div>
+    <md-input-container class="md-icon-float md-block" >
+      <!-- Use floating label instead of placeholder -->
+      <label>Password</label>
+      <input ng-model="user.password" type="password">
+    </md-input-container>
+</div>
+<div>
+    <md-input-container class="md-icon-float md-block" >
+      <!-- Use floating label instead of placeholder -->
+      <label>Confirm Password</label>
+      <input ng-model="user.password" type="password">
+    </md-input-container>
+</div>
+<div>
+    <md-input-container class="md-icon-float md-block" >
+      <!-- Use floating label instead of placeholder -->
+      <label>E-mail</label>
+      <input ng-model="user.email" type="email">
+    </md-input-container>
+</div>
+
+<section layout="row"  layout-align="end center">
+    <a href="" ui-sref="login"> Cancel</a>
+    <md-button class="md-raised md-primary">Create Account</md-button>
+</section> 
+ </md-whiteframe>
+</div>

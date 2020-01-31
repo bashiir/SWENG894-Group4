@@ -22,9 +22,15 @@ myApp.config(function($stateProvider) {
     url: '/login',
     templateUrl: '/login/login.html'
   }
+   var signUpState = {
+    name: 'signup',
+    url: '/signup',
+    templateUrl: '/signup/signup.html'
+  }
 
   $stateProvider.state(helloState);
   $stateProvider.state(loginState);
+  $stateProvider.state(signUpState);
 });
 
 
