@@ -1,13 +1,19 @@
 'use strict';
 
 // Declare app level module which depends on views, and core components
-var myApp = angular.module('myApp', [ 'ngMaterial', 'ngMessages', 'ui.router']);
+var myApp = angular.module('myApp', [ 'ngMaterial', 'ngMessages', 'ngRoute', 'ui.router', 'myApp.login', 'myApp.forgotpass']);
 
 myApp.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
     .primaryPalette('purple')
     .accentPalette('teal');
     // .backgroundPalette('#FFFFFF');
+});
+
+myApp.factory('loginService', function() {
+  var loginEnable = true;
+
+  return loginEnable;
 });
 
 myApp.config(function($stateProvider) {
@@ -20,17 +26,26 @@ myApp.config(function($stateProvider) {
   var loginState = {
     name: 'login',
     url: '/login',
-    templateUrl: '/login/login.html'
+    templateUrl: '/login/login.html',
+    controller: 'loginCtrl'
   }
    var signUpState = {
     name: 'signup',
     url: '/signup',
     templateUrl: '/signup/signup.html'
   }
+  var forgotPassState = {
+    name: 'forgotpass',
+    url: '/forgotpass',
+    templateUrl: '/forgotPass/forgotpass.html',
+    controller: 'forgotPassCtrl'
+  }
 
   $stateProvider.state(helloState);
   $stateProvider.state(loginState);
   $stateProvider.state(signUpState);
+  $stateProvider.state(forgotPassState);
+
 });
 
 

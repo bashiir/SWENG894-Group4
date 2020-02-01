@@ -1,15 +1,31 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/login', {
-    templateUrl: '/login/login.html',
-    controller: 'loginCtrl'
-  });
-}])
+var app = angular.module('myApp.login', ['ui.router']);
 
-.controller('loginCtrl', [function($scope) {
-	$scope.user = {
+app.controller('loginCtrl', function($scope, $state) {
+  $scope.user = {
 		name: '', password: ''  
-	};
-}]);
+	}
+
+	$scope.removeLogin = function() {
+    $scope.loginEnable = false;
+    // $state.go('signup');
+  }
+
+  // function($scope, notify) {
+  //  $scope.callNotify = function(msg) {
+  //    notify(msg);
+  //  };
+	
+});
+
+// app.config(['$routeProvider', function($routeProvider) {
+//   $routeProvider.when('/login', {
+//     templateUrl: '/login/login.html',
+//     controller: 'loginCtrl'
+//   });
+
+// }]);
+
+
+
