@@ -2,7 +2,7 @@
 
 var app = angular.module('myApp.login', ['ui.router']);
 
-app.controller('loginCtrl', function($scope, $state, loginFactory) {
+app.controller('loginCtrl', function($scope, $state, loginFactory, authService) {
   $scope.user = {
 		name: '', password: ''  
 	}
@@ -13,10 +13,29 @@ app.controller('loginCtrl', function($scope, $state, loginFactory) {
     // $state.go('signup');
   }
 
-  // function($scope, notify) {
-  //  $scope.callNotify = function(msg) {
-  //    notify(msg);
-  //  };
+  $scope.submit = function() {
+    console.log('Iam called');
+    /**   $http({
+      method: 'POST',
+      url: 'http://localhost:8001/signup/',
+      headers: {
+        Authorization:
+          'Basic ' + $scope.user.name + ':' + $scope.user.password
+      },
+      data: ''
+    }).then(
+      function successCallback(response) {
+        console.log(response);
+      },
+      function errorCallback(response) {
+        if ((response.status = 401)) {
+          console.log('error :', response.status);
+        }
+      }
+    );
+    */
+  };
+
 	
 });
 
