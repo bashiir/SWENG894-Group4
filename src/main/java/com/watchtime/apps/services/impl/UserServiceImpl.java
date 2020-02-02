@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean createAccount(String username, String password, String email, String firstName, String lastName) {
-        return false;
+        return accountDao.createAccount(username, password, email, firstName, lastName);
     }
 
     private String encryptPassword(String password) {
