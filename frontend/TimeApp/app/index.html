@@ -39,7 +39,7 @@
   -->  
 
 
-
+<div ng-controller="mainCtrl">
   <md-toolbar >
       <div class="md-toolbar-tools">
         <!-- <md-button aria-label="Go Back">
@@ -47,19 +47,20 @@
         </md-button> -->
 
         <h2 flex md-truncate>TimeMngmt</h2>
-        <md-button class="md-raised md-accent md-hue-3" aria-label="Login"  ui-sref="login" ui-sref-active="active">
+        <md-button class="md-raised md-accent md-hue-3" aria-label="Login"  ui-sref="login" ui-sref-active="active" ng-if="isNotLogged">
           Login
         </md-button>
 
-         <md-button class="md-raised md-warn md-hue-3" aria-label="Login"ui-sref="login" ui-sref-active="active" ng-if="false">
+         <md-button class="md-raised md-warn md-hue-3" aria-label="Login" ui-sref-active="active" ng-if="!isNotLogged" ng-click="logOut()">
           Logout
         </md-button>
+        
         <!-- <md-button class="md-fab md-mini md-hue-3" aria-label="Favorite">
           <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
         </md-button> -->
       </div>
     </md-toolbar>
-
+</div>
      <!-- <a ui-sref="hello" ui-sref-active="active">Hello</a>
     <a ui-sref="about" ui-sref-active="active">About</a>
  -->

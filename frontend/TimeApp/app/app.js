@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and core components
-var myApp = angular.module('myApp', [ 'ngMaterial', 'ngMessages', 'ngRoute', 'ui.router', 'myApp.login', 'myApp.forgotpass']);
+var myApp = angular.module('myApp', [ 'ngMaterial', 'ngMessages', 'ngRoute', 'ui.router', 'myApp.login', 'myApp.forgotpass', 'myApp.main']);
 
 myApp.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
@@ -10,11 +10,6 @@ myApp.config(function($mdThemingProvider) {
     // .backgroundPalette('#FFFFFF');
 });
 
-myApp.factory('loginService', function() {
-  var loginEnable = true;
-
-  return loginEnable;
-});
 
 myApp.config(function($stateProvider) {
   var helloState = {
@@ -46,6 +41,22 @@ myApp.config(function($stateProvider) {
   $stateProvider.state(signUpState);
   $stateProvider.state(forgotPassState);
 
+});
+
+myApp.factory('loginFactory', function($rootScope) {
+  $rootScope.isNotLogged = true;
+  var service = {};
+
+  service.isNotLogged = function () {
+    return $rootScope.isNotLogged;
+  }
+
+  service.setLogIn = function (x) {
+    $rootScope.isNotLogged = x;
+    console.log("cambio");
+  }
+
+  return service;
 });
 
 
