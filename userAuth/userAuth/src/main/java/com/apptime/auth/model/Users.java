@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
@@ -47,7 +48,9 @@ public class Users {
 		this.roles = roles;
 	}
 	@Id
+	@GeneratedValue
 	private int user_id;
+	@Column(nullable = false)
 	private String username;
 	private String password;
 	private String email;

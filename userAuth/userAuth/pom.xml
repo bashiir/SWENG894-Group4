@@ -12,11 +12,82 @@
 	<artifactId>userAuth</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>userAuth</name>
-	<description>Demo project for Spring Boot</description>
+	<description>user aut</description>
 
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
+		    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <!-- this profile is active by default -->
+                <activeByDefault>false</activeByDefault>
+                <!-- activate if system properties 'env=dev' -->
+                <property>
+                    <name>env</name>
+                    <value>dev</value>
+                </property>
+            </activation>
+            <dependencies>
+            <dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+        </dependencies>
+        </profile>
+                <profile>
+            <id>prod</id>
+            <activation>
+                
+                <property>
+                    <name>env</name>
+                    <value>mysql</value>
+                </property>
+            </activation>
+            <properties>
+                <db.driverClassName>com.mysql.jdbc.Driver</db.driverClassName>
+                <db.url>jdbc:mysql:localhost:3306/mysqldb</db.url>
+                <db.username>admin</db.username>
+                <db.password>admin</db.password>
+            </properties>
+               <dependencies>
+                <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+        </dependencies>
+        </profile>
+        
+            <profile>
+            <id>postgres</id>
+            <activation>
+             <activeByDefault>true</activeByDefault>
+
+                
+                <property>
+                    <name>env</name>
+                    <value>postgres</value>
+                </property>
+            </activation>
+               <properties>
+                <db.driverClassName>org.postgresql.Driver</db.driverClassName>
+                <db.url>jdbc:postgresql://localhost:5432/authDb</db.url>
+                <db.username>flowable</db.username>
+                <db.password>flowable</db.password>
+            </properties>
+            <dependencies>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+        </dependencies>
+        </profile>
+        
+        </profiles>
 
 	<dependencies>
 		<dependency>
@@ -36,11 +107,6 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
