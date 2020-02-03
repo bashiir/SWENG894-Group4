@@ -3,24 +3,21 @@ package com.apptime.auth.model;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.persistence.JoinColumn;
 
 @Entity
 public class Users {
 
-	public int getUser_id() {
-		return user_id;
+	public int getId() {
+		return id;
 	}
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getUsername() {
 		return username;
@@ -47,7 +44,7 @@ public class Users {
 		this.roles = roles;
 	}
 	@Id
-	private int user_id;
+	private int id;
 	private String username;
 	private String password;
 	private String email;
