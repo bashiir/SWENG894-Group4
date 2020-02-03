@@ -40,7 +40,7 @@ public class AuthUserDetails implements UserDetails {
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return user.getPassword();
+		return user.getUsername();
 	}
 
 	@Override
