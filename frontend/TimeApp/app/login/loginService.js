@@ -9,19 +9,7 @@ app.factory('authService', [
     service.Login = function(username, password, callback) {
       // callback('service is called');
 
-      $http
-        .post({
-          method: 'POST',
-          url: 'localhost:8001/dashboard/',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'basic' + name + ':' + password
-          },
-          data: {}
-        })
-        .success(function(response) {
-          callback(response);
-        });
+
     };
   }
 ]);

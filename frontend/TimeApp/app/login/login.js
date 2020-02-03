@@ -2,11 +2,11 @@
 
 var app = angular.module('myApp.login', ['ui.router']);
 
-app.controller('loginCtrl', function($scope, $state, loginFactory, authService) {
+app.controller('loginCtrl', function($scope, $state, loginFactory, $http) {
   $scope.user = {
 		name: '', password: ''  
-	}
-
+  }
+  var iservice = {};
 	$scope.setLogIn = function(x) {
     loginFactory.setLogIn(x);
     // $scope.loginEnable = false;
@@ -15,6 +15,10 @@ app.controller('loginCtrl', function($scope, $state, loginFactory, authService) 
 
   $scope.submit = function() {
     console.log('Iam called');
+    iservice.login()
+  };
+
+ 
     /**   $http({
       method: 'POST',
       url: 'http://localhost:8001/signup/',
@@ -34,7 +38,29 @@ app.controller('loginCtrl', function($scope, $state, loginFactory, authService) 
       }
     );
     */
-  };
+ //'localhost:8001/dashboard/',
+
+  iservice.login = function(){
+    var req = {
+      method: 'GET',
+      url: 'http://google.com',
+   /**    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'basic' + $scope.user.name + ':' + $scope.user.password
+      },
+      //data: {  }
+      */
+     }
+
+    $http(req)
+    .then(function(response) {
+      console.log(response);
+    }).catch(function(err){
+      console.log("error occured I am in catch block help!",err.error)
+    });
+  }
+
+
 
 	
 });
