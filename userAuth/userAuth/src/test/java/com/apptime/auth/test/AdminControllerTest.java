@@ -44,7 +44,6 @@ public class AdminControllerTest
      
     @Mock
     UserRepository userRepo;
-    @Mock
     MockMvc mockMvc;
     @Mock
     Users user;

@@ -1,5 +1,6 @@
 package com.apptime.auth.controller;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -13,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -50,15 +52,12 @@ public class UserController {
 		return new ResponseEntity<ClientUser>(new ClientUser(user.getUsername(),user.getEmail()), HttpStatus.OK);
 		
 	}
-
+	//https://stackoverflow.com/questions/3102819/disable-same-origin-policy-in-chrome
 	//@PreAuthorize("hasAnyRole('ADMIN')")
+	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@GetMapping("/dashboard")
-	public  ResponseEntity<ClientUser> login() {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		String currentPrincipalName = authentication.getName();
-		
-		
-		return new ResponseEntity<ClientUser>(new ClientUser(currentPrincipalName,null), HttpStatus.OK);
+	public  ResponseEntity<ClientUser> login(Principal p) {	
+		return new ResponseEntity<ClientUser>(new ClientUser(p.getName(),null), HttpStatus.OK);
 		
 		//return  "{username:"+ currentPrincipalName.toString()+"}";
 	}
