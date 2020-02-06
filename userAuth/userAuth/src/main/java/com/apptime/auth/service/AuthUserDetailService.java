@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.apptime.auth.model.Users;
 import com.apptime.auth.repository.UserRepository;
 @Service
-public class AuthserDetailService implements UserDetailsService {
+public class AuthUserDetailService implements UserDetailsService {
 	
 	@Autowired 
 	UserRepository userRepo;
@@ -17,10 +17,10 @@ public class AuthserDetailService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
   Users user = userRepo.findByUsername(username);
-		 authUserDetails userDetail = null;
+		 AuthUserDetails userDetail = null;
 		if(user != null)
 		{
-			userDetail = new authUserDetails();
+			userDetail = new AuthUserDetails();
 			userDetail.setUser(user);
 		}else {
 			throw new UsernameNotFoundException("User not found");
