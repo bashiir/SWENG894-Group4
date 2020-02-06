@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.apptime.auth.model.Users;
 
-public class authUserDetails implements UserDetails {
+public class AuthUserDetails implements UserDetails {
 	
 	public Users getUser() {
 		return user;
