@@ -32,7 +32,8 @@ myApp.config(function($stateProvider) {
    var signUpState = {
     name: 'signup',
     url: '/signup',
-    templateUrl: '/signup/signup.html'
+    templateUrl: '/signup/signup.html',
+    controller: 'SignUpCtrl'
   }
   var forgotPassState = {
     name: 'forgotpass',
