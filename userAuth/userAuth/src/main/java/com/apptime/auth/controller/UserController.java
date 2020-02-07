@@ -57,8 +57,11 @@ public class UserController {
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@GetMapping("/dashboard")
 	public  ResponseEntity<ClientUser> login(Principal p) {	
-		return new ResponseEntity<ClientUser>(new ClientUser(p.getName(),null), HttpStatus.OK);
+		Users user = userRepository.findByUsername(p.getName());
 		
+		//return new ResponseEntity<ClientUser>(new ClientUser(user.getUsername(),user.getEmail()), HttpStatus.OK);
+		
+		return new ResponseEntity<ClientUser>(new ClientUser(user.getUsername(),user.getEmail()), HttpStatus.OK);
 		//return  "{username:"+ currentPrincipalName.toString()+"}";
 	}
 	
