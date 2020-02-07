@@ -51,4 +51,4 @@ angular.module('myApp.signup', ['ui.router', 'ngMessages'])
 		      }
 		 );
 	 };
-}]);
+});
