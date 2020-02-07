@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and core components
-var myApp = angular.module('myApp', [ 'ngMaterial', 'ngMessages', 'ngRoute', 'ui.router', 'myApp.login', 'myApp.forgotpass']);
+var myApp = angular.module('myApp', [ 'ngMaterial', 'ngMessages', 'ngRoute', 'ui.router', 'myApp.login', 'myApp.forgotpass', 'myApp.signup']);
 
 myApp.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
