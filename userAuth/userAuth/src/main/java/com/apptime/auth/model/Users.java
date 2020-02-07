@@ -17,12 +17,6 @@ import javax.persistence.JoinColumn;
 @Entity
 public class Users {
 
-	public int getUser_id() {
-		return user_id;
-	}
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
-	}
 	public String getUsername() {
 		return username;
 	}
@@ -47,10 +41,9 @@ public class Users {
 	public void setRoles(Set<Roles> roles) {
 		this.roles = roles;
 	}
-	@Id
-	@GeneratedValue
-	private int user_id;
+
 	@Column(nullable = false)
+	@Id
 	private String username;
 	private String password;
 	private String email;

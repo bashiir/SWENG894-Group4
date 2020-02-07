@@ -7,5 +7,5 @@ import com.apptime.auth.model.Users;
 
 public interface UserRepository extends JpaRepository<Users, Integer>{
 	Users findByUsername(String username);
-	Users findByUser_id(int userId);
+	//Users findByUser_id(int userId);
 }

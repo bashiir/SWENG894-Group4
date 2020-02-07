@@ -13,6 +13,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.apptime.auth.service.AuthUserDetailService;
+
 
 @Configuration
 @EnableWebSecurity
@@ -20,7 +22,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class securityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	UserDetailsService userDetailService;
+	AuthUserDetailService userDetailService;
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailService).passwordEncoder(encodePWD());
 	}
@@ -34,11 +36,8 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
         .and()
         .httpBasic();
 		
-        
-		
-/*        .authorizeRequests().anyRequest().authenticated()
-        .and()
-        .httpBasic();*/
+     
+      
 	}
 	
 	@Bean
