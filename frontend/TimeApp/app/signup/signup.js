@@ -14,6 +14,8 @@ angular.module('myApp.signup', ['ui.router', 'ngMessages'])
 		name: '', password: '', email: '' 
 	};
 	
+	$scope.confirmPass = '';
+	
 	$scope.submit = function() {
 	    console.log('Iam called');
 
@@ -34,11 +36,6 @@ angular.module('myApp.signup', ['ui.router', 'ngMessages'])
 		}
 		]
 		})
-		      // body: JSON.stringify({
-		      // 	username: $scope.user.name,
-		      // 	password: $scope.user.password,
-		      // 	email: $scope.user.email
-		      // })
 		    }).then(
 		      function successCallback(response) {
 			console.log(response);
