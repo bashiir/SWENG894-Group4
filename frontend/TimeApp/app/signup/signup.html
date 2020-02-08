@@ -50,7 +50,7 @@
 </form>
 <section layout="row"  layout-align="end center">
     <a href="" ui-sref="login"> Cancel</a>
-    <md-button class="md-raised md-primary" ng-click="submit()">Create Account</md-button>
+    <md-button class="md-raised md-primary" ng-disabled="user.confirmPass != user.password || user.password.length == 0" ng-click="submit()">Create Account</md-button>
 </section> 
 <div><p></p></div>
 
