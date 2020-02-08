@@ -16,13 +16,13 @@ public class UserServiceImpl implements UserService {
     private BCryptPasswordEncoder passwordEncoder;
 
     @Override
-    public boolean resetPassword(String userName, String originalPassword, String newPassword) {
-        Users user = userRepository.findByUsername(userName);
+    public boolean resetPassword(String username, String oldPassword, String newPassword) {
+        Users user = userRepository.findByUsername(username);
         if (user == null) {
             return false;
         }
 
-        if (passwordEncoder.matches(originalPassword, user.getPassword())) {
+        if (passwordEncoder.matches(oldPassword, user.getPassword())) {
             user.setPassword(passwordEncoder.encode(newPassword));
             userRepository.save(user);
             return true;

@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.apptime.auth.model.ResetPasswordRequest;
+import com.apptime.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,6 +38,8 @@ public class UserController {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
+	@Autowired
+	private UserService userService;
 	
 	@PostMapping("/signup")
 	public ResponseEntity<ClientUser> signup(@RequestBody Users user) {
@@ -50,7 +55,7 @@ public class UserController {
 		String encryptPwd = passwordEncoder.encode(pwd);
 		user.setPassword(encryptPwd);
 		userRepository.save(user);
-		return new ResponseEntity<ClientUser>(new ClientUser(user.getUsername(),user.getEmail()), HttpStatus.OK);
+		return buildSuccessfulResponse(user);
 		
 	}
 	//https://stackoverflow.com/questions/3102819/disable-same-origin-policy-in-chrome
@@ -62,9 +67,39 @@ public class UserController {
 		
 		//return new ResponseEntity<ClientUser>(new ClientUser(user.getUsername(),user.getEmail()), HttpStatus.OK);
 		
-		return new ResponseEntity<ClientUser>(new ClientUser(user.getUsername(),user.getEmail()), HttpStatus.OK);
+		return buildSuccessfulResponse(user);
 
 	}
-	
 
+	@PostMapping("/resetPassword")
+	public ResponseEntity<ClientUser> resetPassword(@RequestBody ResetPasswordRequest request) {
+		if (StringUtils.isEmpty(request.getUsername()) || StringUtils.isEmpty(request.getOldPassword()) || StringUtils.isEmpty(request.getNewPassword())) {
+			return buildErrorResponse(HttpStatus.BAD_REQUEST);
+		}
+		Users user = userRepository.findByUsername(request.getUsername());
+		if (user == null) {
+			// cannot find the user
+			return buildErrorResponse(HttpStatus.NOT_FOUND);
+		}
+		boolean result = userService.resetPassword(request.getUsername(), request.getOldPassword(), request.getNewPassword());
+		if (result) {
+			// password is updated
+			return buildSuccessfulResponse(user);
+		} else {
+			// old password doesn't match the record
+			return buildErrorResponse(HttpStatus.UNAUTHORIZED);
+		}
+	}
+
+	private ClientUser parseUser(Users user) {
+		return new ClientUser(user.getUsername(),user.getEmail());
+	}
+
+	private ResponseEntity<ClientUser> buildSuccessfulResponse(Users user) {
+		return new ResponseEntity<>(parseUser(user), HttpStatus.OK);
+	}
+
+	private ResponseEntity<ClientUser> buildErrorResponse(HttpStatus httpStatus) {
+		return new ResponseEntity<>(httpStatus);
+	}
 }
