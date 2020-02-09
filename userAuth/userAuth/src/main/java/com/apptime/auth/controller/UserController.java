@@ -2,7 +2,6 @@ package com.apptime.auth.controller;
 
 import java.security.Principal;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.apptime.auth.model.ResetPasswordRequest;
@@ -61,7 +60,7 @@ public class UserController {
 		Users user = userRepository.findByUsername(p.getName());
 		
 		//return new ResponseEntity<ClientUser>(new ClientUser(user.getUsername(),user.getEmail()), HttpStatus.OK);
-		
+
 		return buildSuccessfulResponse(user);
 
 	}
@@ -71,17 +70,20 @@ public class UserController {
 		if (p == null) {
 			return buildErrorResponse(HttpStatus.UNAUTHORIZED);
 		}
+
 		if (StringUtils.isEmpty(request.getUsername()) || StringUtils.isEmpty(request.getOldPassword()) || StringUtils.isEmpty(request.getNewPassword())) {
 			return buildErrorResponse(HttpStatus.BAD_REQUEST);
 		}
 		if (!request.getUsername().equals(p.getName())) {
 			return buildErrorResponse(HttpStatus.FORBIDDEN);
 		}
+
 		Users user = userRepository.findByUsername(request.getUsername());
 		if (user == null) {
 			// cannot find the user
 			return buildErrorResponse(HttpStatus.NOT_FOUND);
 		}
+
 		boolean result = userService.resetPassword(request.getUsername(), request.getOldPassword(), request.getNewPassword());
 		if (result) {
 			// password is updated
