@@ -54,5 +54,13 @@ public class Users {
 	
 	private Set<Task> tasks;
 	
-
+	@Override
+	public String toString() {
+		return "Users{" +
+				"username='" + username + '\'' +
+				", password='" + password + '\'' +
+				", email='" + email + '\'' +
+				", roles=" + roles +
+				'}';
+	}
 }
