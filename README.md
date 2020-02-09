@@ -5,7 +5,7 @@ clone the repo.
  
  
  * For linux based os:
- 1. switch to bashiirUserUathFeature branch
+ 1. switch to bashiirUserUathFeature branch (git checkout bashiirUserUathFeature)
 1. cd to userAuth/userAuth.
 1. Open terminal and run:  ./mvnw spring-boot:run -Dspring-boot.run.profiles=dev 
 * For windows os
