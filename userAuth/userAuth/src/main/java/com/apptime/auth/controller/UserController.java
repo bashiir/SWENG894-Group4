@@ -25,7 +25,7 @@ import com.apptime.auth.repository.UserRepository;
 
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin("http://localhost:8000")
 public class UserController {
 	@Autowired
 	private UserRepository userRepository;
@@ -55,7 +55,7 @@ public class UserController {
 	}
 	//https://stackoverflow.com/questions/3102819/disable-same-origin-policy-in-chrome
 	//@PreAuthorize("hasAnyRole('ADMIN')")
-	//@CrossOrigin(origins = "*", allowedHeaders = "*")
+	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@GetMapping("/dashboard")
 	public  ResponseEntity<ClientUser> login(Principal p) {	
 		Users user = userRepository.findByUsername(p.getName());
