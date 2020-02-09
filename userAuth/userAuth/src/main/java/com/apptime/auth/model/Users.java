@@ -50,6 +50,9 @@ public class Users {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Roles> roles;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	
+	private Set<Task> tasks;
 	
 
 }
