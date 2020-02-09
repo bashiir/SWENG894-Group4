@@ -37,10 +37,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
  
 @ExtendWith(MockitoExtension.class)
-public class AdminControllerTest 
+public class UserControllerTest
 {
     @InjectMocks
-    UserController employeeController;
+    UserController userController;
      
     @Mock
     UserRepository userRepo;

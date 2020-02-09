@@ -72,9 +72,15 @@ public class UserController {
 	}
 
 	@PostMapping("/resetPassword")
-	public ResponseEntity<ClientUser> resetPassword(@RequestBody ResetPasswordRequest request) {
+	public ResponseEntity<ClientUser> resetPassword(@RequestBody ResetPasswordRequest request, Principal p) {
+		if (p == null) {
+			return buildErrorResponse(HttpStatus.UNAUTHORIZED);
+		}
 		if (StringUtils.isEmpty(request.getUsername()) || StringUtils.isEmpty(request.getOldPassword()) || StringUtils.isEmpty(request.getNewPassword())) {
 			return buildErrorResponse(HttpStatus.BAD_REQUEST);
+		}
+		if (!request.getUsername().equals(p.getName())) {
+			return buildErrorResponse(HttpStatus.FORBIDDEN);
 		}
 		Users user = userRepository.findByUsername(request.getUsername());
 		if (user == null) {
