@@ -23,6 +23,7 @@
   <script src="signup/signup.js"></script>
   <script src="login/login.js"></script>
   <script src="forgotpass/forgotpass.js"></script>
+  <script src="tasks/tasks.js"></script>
 
   <!-- Services -->
  <script src="login/loginService.js"></script>
@@ -30,6 +31,8 @@
 
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
 
 </head>
@@ -46,6 +49,14 @@
         <!-- <md-button aria-label="Go Back">
           Back
         </md-button> -->
+        <md-button ng-click="toggleLeft()"
+            class="md-primary" hide-gt-md>
+            Toggle left
+          </md-button>
+
+        <md-button class="md-icon-button" aria-label="Settings">
+          <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+        </md-button>
 
         <h2 flex md-truncate>TimeMngmt</h2>
         <md-button class="md-raised md-accent md-hue-3" aria-label="Login"  ui-sref="login" ui-sref-active="active" ng-if="isNotLogged">
@@ -65,6 +76,31 @@
      <!-- <a ui-sref="hello" ui-sref-active="active">Hello</a>
     <a ui-sref="about" ui-sref-active="active">About</a>
  -->
+<md-sidenav
+        class="md-sidenav-left"
+        md-component-id="left"
+        md-is-locked-open="$mdMedia('gt-md')"
+        md-whiteframe="4">
+
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Menu</h1>
+      </md-toolbar>
+      <md-content layout-padding ng-controller="mainCtrl">
+        <md-button ui-sref="tasks" ng-click="close()" class="md-primary" hide-gt-md>
+          Tasks
+        </md-button>
+        <md-divider ></md-divider>
+        <md-button ui-sref="tasks" ng-click="close()" class="md-primary" hide-gt-md>
+          Reports
+        </md-button>
+        <md-divider ></md-divider>
+
+        <md-button ng-click="close()" class="md-primary" hide-gt-md>
+          Close Sidenav Left
+        </md-button>
+      </md-content>
+
+    </md-sidenav>
  
     <ui-view></ui-view>
   

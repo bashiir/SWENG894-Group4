@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and core components
-var myApp = angular.module('myApp', [ 'ngMaterial', 'ngMessages', 'ngRoute', 'ui.router', 'myApp.login', 'myApp.forgotpass', 'myApp.main']);
+var myApp = angular.module('myApp', [ 'ngMaterial', 'ngMessages', 'ngRoute', 'ui.router', 'myApp.login', 'myApp.forgotpass', 'myApp.main', 'myApp.tasks']);
 
 myApp.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
@@ -36,10 +36,18 @@ myApp.config(function($stateProvider) {
     controller: 'forgotPassCtrl'
   }
 
+  var tasksState = {
+    name: 'tasks',
+    url: '/tasks',
+    templateUrl: '/tasks/tasks.html',
+    controller: 'tasksCtrl'
+  }
+
   $stateProvider.state(helloState);
   $stateProvider.state(loginState);
   $stateProvider.state(signUpState);
   $stateProvider.state(forgotPassState);
+  $stateProvider.state(tasksState);
 
 });
 

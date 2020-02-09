@@ -1,0 +1,294 @@
+<div layout="column" layout-align="center center" ng-cloak>
+<h1>MyTasks</h1>
+<div> View tasks: <md-datepicker ng-model="myDate" ng-change="onDateChanged()"
+                 md-placeholder="Enter date"></md-datepicker>
+  Date: {{myDate | date:shortDate}}</div>
+
+</div>
+
+<md-section>
+<div layout="row" layout-xs="row">
+  <div flex="">
+<div layout="row" layout-xs="column" layout-wrap="">
+  <div flex= "50" flex-xs="100" ng-repeat="i in [1, 2, 3, 4, 5,6,7,8,9]">
+    
+     <md-card>
+        <md-card-header>
+          <md-card-avatar>
+            <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
+          </md-card-avatar>
+          <md-card-header-text>
+            <span class="md-title">Name</span>
+            <span class="md-subhead">Category</span>
+          </md-card-header-text>
+        </md-card-header>
+        <md-card-title>
+          <md-card-title-text>
+            <!-- <span class="md-headline">In-card actions</span> -->
+            <span class="md-subhead">Description</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <table cellspacing="10">
+            <tr>
+              <th>Start Time</th>
+              <th>End Time</th>
+            </tr>
+            <tr>
+              <td>4:30pm <span style="font-size:4%;">Actual</span></td>
+              <td>4:30pm <span style="font-size:4%;">Actual</span></td>
+            </tr>
+          </table>
+
+
+          <!-- <p>
+            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+          </p> -->
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="start center">
+          <md-button>Edit</md-button>
+          <!-- <md-button>Remove</md-button> -->
+        </md-card-actions>
+      </md-card>
+  </div>
+</div>
+<!-- </md-section> -->
+</div>
+<md-divider ></md-divider>
+
+<!-- <md-section> -->
+ <div flex="">
+<div layout="row" layout-xs="column" layout-wrap="">
+  <div flex= "50" flex-xs="100" ng-repeat="i in [1, 2, 3, 4, 5]">
+    
+     <md-card>
+        <md-card-header>
+          <md-card-avatar>
+            <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
+          </md-card-avatar>
+          <md-card-header-text>
+            <span class="md-title">1Title</span>
+            <span class="md-subhead">subhead</span>
+          </md-card-header-text>
+        </md-card-header>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">In-card actions</span>
+            <span class="md-subhead">Description</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="start center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+        <md-card-content>
+          <p>
+            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+          </p>
+        </md-card-content>
+      </md-card>
+  </div>
+</div>
+</div>
+</md-section>
+
+<md-button class="md-fab md-fab-bottom-right" aria-label="Add a category" style="position:fixed !important;" ng-click="showAdvanced($event)">
+  <md-icon>add</md-icon>
+</md-button>
+
+<!-- 
+
+<div layout="row" layout-xs="column">
+  <div flex="">
+    I'm above on mobile, and to the left on larger devices.
+  <md-content layout-padding>
+    <md-grid-list
+        md-cols-gt-md="3" md-cols="3" md-cols-md="3"
+        md-row-height-gt-md="1:1" md-row-height="1:1"
+        md-gutter-gt-md="16px" md-gutter-md="8px" md-gutter="4px">
+     
+
+<md-grid-tile ng-repeat="i in [1, 2, 3, 4, 5]">
+       <md-card>
+        <md-card-header>
+          <md-card-avatar>
+            <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
+          </md-card-avatar>
+          <md-card-header-text>
+            <span class="md-title">Title</span>
+            <span class="md-subhead">subhead</span>
+          </md-card-header-text>
+        </md-card-header>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">In-card actions</span>
+            <span class="md-subhead">Description</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="start center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+        <md-card-content>
+          <p>
+            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+          </p>
+        </md-card-content>
+      </md-card>
+      </md-grid-tile>
+    </md-grid-list>
+  </md-content>
+
+
+  </div> -->
+<!--   <div flex="">
+    I'm below on mobile, and to the right on larger devices.
+
+    <md-card>
+        <md-card-header>
+          <md-card-avatar>
+            <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
+          </md-card-avatar>
+          <md-card-header-text>
+            <span class="md-title">Title</span>
+            <span class="md-subhead">subhead</span>
+          </md-card-header-text>
+        </md-card-header>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">In-card actions</span>
+            <span class="md-subhead">Description</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="start center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+        <md-card-content>
+          <p>
+            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+          </p>
+        </md-card-content>
+      </md-card>
+
+ <md-card>
+        <md-card-header>
+          <md-card-avatar>
+            <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
+          </md-card-avatar>
+          <md-card-header-text>
+            <span class="md-title">Title</span>
+            <span class="md-subhead">subhead</span>
+          </md-card-header-text>
+        </md-card-header>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">In-card actions</span>
+            <span class="md-subhead">Description</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="start center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+        <md-card-content>
+          <p>
+            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+          </p>
+        </md-card-content>
+      </md-card>
+
+
+       <md-card>
+        <md-card-header>
+          <md-card-avatar>
+            <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
+          </md-card-avatar>
+          <md-card-header-text>
+            <span class="md-title">Title</span>
+            <span class="md-subhead">subhead</span>
+          </md-card-header-text>
+        </md-card-header>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">In-card actions</span>
+            <span class="md-subhead">Description</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="start center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+        <md-card-content>
+          <p>
+            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+          </p>
+        </md-card-content>
+      </md-card>
+
+
+       <md-card>
+        <md-card-header>
+          <md-card-avatar>
+            <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
+          </md-card-avatar>
+          <md-card-header-text>
+            <span class="md-title">Title</span>
+            <span class="md-subhead">subhead</span>
+          </md-card-header-text>
+        </md-card-header>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">In-card actions</span>
+            <span class="md-subhead">Description</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="start center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+        <md-card-content>
+          <p>
+            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+          </p>
+        </md-card-content>
+      </md-card>
+
+
+       <md-card>
+        <md-card-header>
+          <md-card-avatar>
+            <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
+          </md-card-avatar>
+          <md-card-header-text>
+            <span class="md-title">Title</span>
+            <span class="md-subhead">subhead</span>
+          </md-card-header-text>
+        </md-card-header>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">In-card actions</span>
+            <span class="md-subhead">Description</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="start center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+        <md-card-content>
+          <p>
+            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+          </p>
+        </md-card-content>
+      </md-card>
+
+
+  </div> -->
