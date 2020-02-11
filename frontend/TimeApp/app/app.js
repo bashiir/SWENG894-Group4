@@ -66,5 +66,3 @@ myApp.factory('loginFactory', function($rootScope) {
 
   return service;
 });
-
-
