@@ -1,0 +1,106 @@
+
+<md-dialog ng-controller="tasksCtrl" aria-label="Edit Task">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Edit Task</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <i class="material-icons">
+          clear
+          </i>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+       <div>
+        <md-input-container class="md-icon-float md-block" >
+          <!-- Use floating label instead of placeholder -->
+          <label>Name</label>
+        <input ng-model="tsk.name"  required type="text">
+        </md-input-container>
+      </div>
+
+      <div layout="row">
+        <div flex="">
+        <md-input-container ng-if="addCatg">
+          <label>Category</label>
+          <md-select ng-model="tsk.category">
+            <md-option><em>None</em></md-option>
+            <md-option ng-repeat="category in categories" ng-value="category">
+              {{category}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+
+        <md-input-container class="md-icon-float md-block" ng-if="!addCatg">
+          <!-- Use floating label instead of placeholder -->
+          <label>Category</label>
+        <input ng-model="tsk.category" requiredtype="text">
+        </md-input-container>
+        </div>
+        <div flex="">
+         <md-button class=" md-warn" ng-click="addCategory(false)" ng-if="addCatg"  >Add Category</md-button>
+         <md-button class=" md-warn" ng-click="addCategory(true)" ng-if="!addCatg">Save</md-button>
+        </div>
+      </div>
+      <div>
+        <div layout="row">
+        <div flex="45">
+        <md-input-container class="md-icon-float md-block" >
+          <!-- Use floating label instead of placeholder -->
+          <label>Start Date</label>
+        <!-- <input ng-model="tsk.sDate"  required type="text"> -->
+        <md-datepicker ng-model="tsk.sDate" 
+                 md-placeholder="Enter date"  md-hide-icons="calendar" required></md-datepicker>
+        </md-input-container>
+        </div>
+        <div flex="10"></div>
+      <div flex="45">
+
+
+        <md-input-container class="md-icon-float md-block" >
+          <label>Start Time</label>
+        <input ng-model="tsk.sTime"  required type="text" ng-pattern="/^(?:(?:1[0-2]|0?[1-9]):[0-5]\d\s*[AaPp][Mm])?$/">
+        <!-- <div class="hint">HH:mm PM/AM</div> -->
+        <!-- <div ng-messages="userForm.phone.$error" ng-hide="showHints">
+            <div ng-message="pattern">HH:mm PM/AM - Please enter a valid time 0-12: 0-60 AM/PM.</div>
+          </div> -->
+        </md-input-container>
+      </div>
+      </div>
+    </div>
+
+
+    <div>
+        <div layout="row">
+        <div flex="45">
+         <md-input-container class="md-icon-float md-block" >
+          <!-- Use floating label instead of placeholder -->
+          <label>End Date</label>
+        <!-- <input ng-model="tsk.sDate"  required type="text"> -->
+        <md-datepicker ng-model="tsk.eDate" 
+                 md-placeholder="Enter date" md-hide-icons="calendar" required></md-datepicker>
+        </md-input-container>
+        </div>
+        <div flex="10"></div>
+      <div flex="45">
+        <md-input-container class="md-icon-float md-block" >
+          <!-- Use floating label instead of placeholder -->
+          <label>End Time</label>
+        <input ng-model="tsk.eTime"  required type="text" ng-pattern="/^(?:(?:1[0-2]|0?[1-9]):[0-5]\d\s*[AaPp][Mm])?$/">
+        </md-input-container>
+      </div>
+      </div>
+    </div>
+
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+    <md-button class="md-raised md-primary" type="submit" ng-click="" ng-disabled="">Save</md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
+
