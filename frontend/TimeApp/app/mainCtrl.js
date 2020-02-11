@@ -3,8 +3,8 @@
 angular.module('myApp.main', ['ui.router'])
 
 
-.controller('mainCtrl', function($scope, $rootScope, $timeout,$mdSidenav, $log, loginFactory) {
-	
+.controller('mainCtrl', function($scope, $rootScope, $timeout,$mdSidenav, $log, $state,loginFactory) {
+
 	$rootScope.isNotLogged = loginFactory.isNotLogged();
 
 	    $scope.toggleLeft = buildDelayedToggler('left');
@@ -13,7 +13,7 @@ angular.module('myApp.main', ['ui.router'])
 	$scope.logOut = function() {
     loginFactory.setLogIn(true);
     // $scope.loginEnable = false;
-    // $state.go('signup');
+    $state.go('login');
   }
 
  $scope.close = function () {
