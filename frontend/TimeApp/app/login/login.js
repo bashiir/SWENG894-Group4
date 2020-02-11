@@ -8,7 +8,14 @@ app.controller('loginCtrl', function($scope, $state, loginFactory, $http) {
   }
   var iservice = {};
 	$scope.setLogIn = function(x) {
+    if (x == false) {
+      $state.go('tasks');
+    } else {
+      $state.go('login');
+    }    
+
     loginFactory.setLogIn(x);
+    
     // $scope.loginEnable = false;
     // $state.go('signup');
   }
@@ -72,6 +79,3 @@ app.controller('loginCtrl', function($scope, $state, loginFactory, $http) {
 //   });
 
 // }]);
-
-
-
