@@ -1,16 +1,16 @@
 <div layout="column" layout-align="center center" ng-cloak>
-<h1>MyTasks</h1>
+<h2 flex >MyTasks</h2> 
 <div> View tasks: <md-datepicker ng-model="myDate" ng-change="onDateChanged()"
-                 md-placeholder="Enter date"></md-datepicker>
-  Date: {{myDate | date:shortDate}}</div>
-
+                 md-placeholder="Enter date" ></md-datepicker>
+<!--   Date: {{myDate | date:shortDate}} -->
+</div>
 </div>
 
 <md-section>
 <div layout="row" layout-xs="row">
   <div flex="">
 <div layout="row" layout-xs="column" layout-wrap="">
-  <div flex= "50" flex-xs="100" ng-repeat="i in [1, 2, 3, 4, 5,6,7,8,9]">
+  <div flex= "33" flex-xs="100" ng-repeat="i in [1, 2, 3, 4, 5,6,7,8,9]">
     
      <md-card>
         <md-card-header>
@@ -47,18 +47,19 @@
           </p> -->
         </md-card-content>
         <md-card-actions layout="row" layout-align="start center">
-          <md-button>Edit</md-button>
-          <!-- <md-button>Remove</md-button> -->
+          <md-button><i class="material-icons" ng-click="showEdit($event)">edit</i></md-button>
+          <md-button class=" md-warn"><i class="material-icons">share</i></md-button>
+          <md-button ng-click="showConfirm($event, i)"> <i class="material-icons"> delete </i></md-button>
         </md-card-actions>
       </md-card>
   </div>
 </div>
 <!-- </md-section> -->
 </div>
-<md-divider ></md-divider>
+<!-- <md-divider ></md-divider> -->
 
 <!-- <md-section> -->
- <div flex="">
+<!--  <div flex="">
 <div layout="row" layout-xs="column" layout-wrap="">
   <div flex= "50" flex-xs="100" ng-repeat="i in [1, 2, 3, 4, 5]">
     
@@ -91,7 +92,7 @@
       </md-card>
   </div>
 </div>
-</div>
+</div> -->
 </md-section>
 
 <md-button class="md-fab md-fab-bottom-right" aria-label="Add a category" style="position:fixed !important;" ng-click="showAdvanced($event)">
