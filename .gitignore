@@ -4,6 +4,8 @@ target/
 !**/src/main/**
 !**/src/test/**
 node_modules
+aws-exports.ts
+aws-exports.js
 ### STS ###
 .apt_generated
 .classpath
