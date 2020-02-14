@@ -7,6 +7,7 @@ import { ProfileComponent } from "./profile/profile.component";
 import { SecureComponent } from "./secure/secure.component";
 import { HomeComponent } from "./home/home.component";
 import { AmplifyAngularModule, AmplifyService } from "aws-amplify-angular";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import UI from "@aws-amplify/ui";
 
 @NgModule({
@@ -17,7 +18,7 @@ import { AmplifyAngularModule, AmplifyService } from "aws-amplify-angular";
     SecureComponent,
     HomeComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, AmplifyAngularModule],
+  imports: [BrowserModule, AppRoutingModule, AmplifyAngularModule, BrowserAnimationsModule],
   providers: [AmplifyService],
   bootstrap: [AppComponent]
 })
