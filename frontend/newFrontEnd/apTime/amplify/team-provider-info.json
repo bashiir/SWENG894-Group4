@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-aptime-dev-190824-authRole",
+            "UnauthRoleArn": "arn:aws:iam::739736637241:role/amplify-aptime-dev-190824-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::739736637241:role/amplify-aptime-dev-190824-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-aptime-dev-190824-deployment",
+            "UnauthRoleName": "amplify-aptime-dev-190824-unauthRole",
+            "StackName": "amplify-aptime-dev-190824",
+            "StackId": "arn:aws:cloudformation:us-east-1:739736637241:stack/amplify-aptime-dev-190824/81d766d0-4ec6-11ea-b93a-0a9564c9a859",
+            "AmplifyAppId": "d3hzn1oawj6bgg"
+        },
+        "categories": {
+            "auth": {
+                "aptime799cebe0": {}
+            }
+        }
+    }
+}
